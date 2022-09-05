@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "components/functions.php";
 $categories = getAllCategories();
 
@@ -53,13 +54,9 @@ if (!empty($_POST)) {
 
     </div>
 
-
-
-    <div class="bg-dark">
-        <p class="text-white text-center p-5 mb-0 mt-4">
-            All rights reserved © 2022
-        </p>
-    </div>
+    <?php 
+    include "components/footer.php"
+    ?>
 
 
 </body>

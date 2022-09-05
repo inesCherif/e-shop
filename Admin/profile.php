@@ -1,15 +1,3 @@
-<?php 
-
-session_start();
-
-if (!isset($_SESSION['email'])) {
-    header('location:connexion.php');
-}
-
-?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,38 +5,17 @@ if (!isset($_SESSION['email'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Admin Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 </head>
 
 <body>
-    <?php 
 
-    include "components/header.php"
-    
-    
-    
-    ?>
+    <h1>dashboard</h1>
+    <a href="../logout.php" class="btn btn-primary">Log Out</a>
 
-    <div class="container">
-        <h1>Welcome
-            <span class="text-primary">
-                <?php  
-            echo $_SESSION['FirstName']." ".$_SESSION['LastName']  
-            ?>
-            </span>
-            To Your Account!
-        </h1>
-        <h2>E-mail: <?php  
-            echo $_SESSION['email']; 
-            ?></h2>
-    </div>
-
-
-    <?php 
-    include "components/footer.php"
-    ?>
 
 
 </body>

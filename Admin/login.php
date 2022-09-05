@@ -6,20 +6,18 @@ if (isset($_SESSION['email'])) {
     header('location:profile.php');
 }
 
-include "components/functions.php";
+include "../components/functions.php";
 $user = true;
-$categories = getAllCategories();
 if (!empty($_POST)) {
 
-    $user = ConnectVisitor($_POST);    
+    $user = ConnectAdmin($_POST);    
     if( $user ){
         header('location: profile.php');
         session_start();
         $_SESSION['email'] = $user['email'];
         $_SESSION['FirstName'] = $user['FirstName'];
         $_SESSION['LastName'] = $user['LastName'];
-        $_SESSION['pw'] = $user['pw'];
-        $_SESSION['phone'] = $user['phone'];
+        $_SESSION['pw'] = $user['pw'];    
     }
 }
 
@@ -44,14 +42,9 @@ if (!empty($_POST)) {
 
 <body>
 
-
-    <?php 
-    include "components/header.php"
-    ?>
-
     <div class="col-12 p-5">
-        <h1 class="text-center">Connection</h1>
-        <form action="connexion.php" method="POST">
+        <h1 class="text-center">Admin Dashboard Connection</h1>
+        <form action="login.php" method="POST">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
                 <input type="email" name="email" class="form-control" id="exampleInputEmail1"
@@ -70,7 +63,7 @@ if (!empty($_POST)) {
 
     <!-- FOOTER -->
     <?php 
-    include "components/footer.php"
+    include "../components/footer.php"
     ?>
 
 

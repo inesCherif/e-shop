@@ -109,7 +109,17 @@ function ConnectVisitor($data){
     return $user;
 }
 
+function ConnectAdmin($data){
+    $conn = connect();
+    $email=$data['email'];
+    $pw=md5($data['pw']);
+    $query= "SELECT * FROM admin WHERE email = '$email'  AND pw = '$pw' ";
+    
+    $result = $conn->query($query);
+    $user = $result->fetch();
 
+    return $user;
+}
 
 
 
