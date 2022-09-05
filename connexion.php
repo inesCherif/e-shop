@@ -1,4 +1,11 @@
 <?php
+
+session_start();
+
+if (isset($_SESSION['email'])) {
+    header('location:profile.php');
+}
+
 include "components/functions.php";
 $user = true;
 $categories = getAllCategories();
