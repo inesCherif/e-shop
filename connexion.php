@@ -4,17 +4,16 @@ $user = true;
 $categories = getAllCategories();
 if (!empty($_POST)) {
 
-    $user = ConnectVisitor($_POST);
-    
-//     if(count($user) > 0){
-//         session_start();
-//         $_SESSION['email'] = $user['email'];
-//         $_SESSION['FirstName'] = $user['FirstName'];
-//         $_SESSION['LastName'] = $user['LastName'];
-//         $_SESSION['pw'] = $user['pw'];
-//         $_SESSION['phone'] = $user['phone'];
-//         // header('location: profile.php');
-//     }
+    $user = ConnectVisitor($_POST);    
+    if( $user ){
+        header('location: profile.php');
+        session_start();
+        $_SESSION['email'] = $user['email'];
+        $_SESSION['FirstName'] = $user['FirstName'];
+        $_SESSION['LastName'] = $user['LastName'];
+        $_SESSION['pw'] = $user['pw'];
+        $_SESSION['phone'] = $user['phone'];
+    }
 }
 
 
